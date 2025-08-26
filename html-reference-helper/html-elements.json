@@ -1,0 +1,218 @@
+[
+  {
+    "element": "div",
+    "category": "Beginner",
+    "example": "<div class=\"container\">Content</div>",
+    "purpose": "Defines a generic container for flow content",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
+    "tips": "Often used with CSS classes to structure sections or layout."
+  },
+  {
+    "element": "span",
+    "category": "Beginner",
+    "example": "<span class=\"highlight\">Text</span>",
+    "purpose": "Inline container for text or small elements",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span",
+    "tips": "Useful for styling part of text or grouping inline elements."
+  },
+  {
+    "element": "p",
+    "category": "Beginner",
+    "example": "<p>This is a paragraph.</p>",
+    "purpose": "Defines a paragraph of text",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p",
+    "tips": "Browsers automatically add vertical spacing before and after paragraphs."
+  },
+  {
+    "element": "h1",
+    "category": "Beginner",
+    "example": "<h1>Main Heading</h1>",
+    "purpose": "Defines the most important heading",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "tips": "Use headings hierarchically (`h1` → `h6`) for structure and SEO."
+  },
+  {
+    "element": "a",
+    "category": "Beginner",
+    "example": "<a href=\"https://example.com\">Link</a>",
+    "purpose": "Creates a hyperlink to another page or resource",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+    "tips": "Always include `rel=\"noopener\"` for external links for security."
+  },
+  {
+    "element": "ul",
+    "category": "Beginner",
+    "example": "<ul><li>Item 1</li><li>Item 2</li></ul>",
+    "purpose": "Defines an unordered (bulleted) list",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul",
+    "tips": "Use `<li>` for each item; do not nest block elements inside directly."
+  },
+  {
+    "element": "ol",
+    "category": "Beginner",
+    "example": "<ol><li>Step 1</li><li>Step 2</li></ol>",
+    "purpose": "Defines an ordered (numbered) list",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol",
+    "tips": "Use `type` attribute to change numbering style if needed."
+  },
+  {
+    "element": "img",
+    "category": "Intermediate",
+    "example": "<img src=\"image.jpg\" alt=\"Description\">",
+    "purpose": "Embeds an image in the document",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+    "tips": "Always include descriptive alt text for accessibility."
+  },
+  {
+    "element": "table",
+    "category": "Intermediate",
+    "example": "<table><tr><td>Cell</td></tr></table>",
+    "purpose": "Defines tabular data",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
+    "tips": "Use `<thead>`, `<tbody>`, `<tfoot>`, and `<th>` for semantic structure."
+  },
+  {
+    "element": "form",
+    "category": "Intermediate",
+    "example": "<form action=\"/submit\" method=\"POST\"><input type=\"text\" /></form>",
+    "purpose": "Collects user input for submission",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    "tips": "Always pair `<label>` elements with inputs for accessibility."
+  },
+  {
+    "element": "input",
+    "category": "Intermediate",
+    "example": "<input type=\"text\" placeholder=\"Enter name\">",
+    "purpose": "Defines interactive controls for user input",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
+    "tips": "Choose correct `type` for validation and UX; always pair with `<label>`."
+  },
+  {
+    "element": "button",
+    "category": "Intermediate",
+    "example": "<button type=\"submit\">Submit</button>",
+    "purpose": "Defines a clickable button",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
+    "tips": "Use `type=\"button\"` or `type=\"submit\"` depending on form behavior."
+  },
+  {
+    "element": "video",
+    "category": "Intermediate",
+    "example": "<video src=\"video.mp4\" controls></video>",
+    "purpose": "Embeds a video player",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video",
+    "tips": "Always provide multiple sources and a fallback message for accessibility."
+  },
+  {
+    "element": "audio",
+    "category": "Intermediate",
+    "example": "<audio src=\"audio.mp3\" controls></audio>",
+    "purpose": "Embeds an audio player",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+    "tips": "Provide captions or transcripts for accessibility."
+  },
+  {
+    "element": "canvas",
+    "category": "Advanced",
+    "example": "<canvas id=\"myCanvas\"></canvas>",
+    "purpose": "Used for rendering graphics via JavaScript",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas",
+    "tips": "Requires JS to draw; set width/height attributes to avoid scaling issues."
+  },
+  {
+    "element": "section",
+    "category": "Advanced",
+    "example": "<section><h2>Title</h2><p>Content</p></section>",
+    "purpose": "Represents a standalone section of content",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section",
+    "tips": "Use semantic tags to improve accessibility and SEO."
+  },
+  {
+    "element": "article",
+    "category": "Advanced",
+    "example": "<article><h2>News</h2><p>Content</p></article>",
+    "purpose": "Represents a self-contained composition",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article",
+    "tips": "Good for blog posts, news, and similar content blocks."
+  },
+  {
+    "element": "header",
+    "category": "Advanced",
+    "example": "<header><h1>Site Title</h1></header>",
+    "purpose": "Defines introductory content or navigational links",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header",
+    "tips": "Usually appears at the top of a page or section."
+  },
+  {
+    "element": "footer",
+    "category": "Advanced",
+    "example": "<footer>© 2025 Company</footer>",
+    "purpose": "Defines footer for a page or section",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer",
+    "tips": "Typically contains authorship info, copyright, or navigation links."
+  },
+  {
+    "element": "iframe",
+    "category": "Expert",
+    "example": "<iframe src=\"https://example.com\" title=\"Embedded page\"></iframe>",
+    "purpose": "Embeds another HTML document inside the page",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe",
+    "tips": "Always include a `title` attribute for accessibility."
+  },
+  {
+    "element": "aria-label",
+    "category": "Expert",
+    "example": "<button aria-label=\"Close menu\">X</button>",
+    "purpose": "Provides accessible labels for screen readers",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label",
+    "tips": "Use for interactive elements where visible text is insufficient."
+  },
+  {
+    "element": "data-*",
+    "category": "Expert",
+    "example": "<div data-user-id=\"123\"></div>",
+    "purpose": "Custom data attributes for storing private data",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes",
+    "tips": "Accessible via JavaScript with dataset property."
+  },
+  {
+    "element": "meta",
+    "category": "Expert",
+    "example": "<meta name=\"description\" content=\"HTML Reference Helper\">",
+    "purpose": "Provides metadata about the HTML document",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta",
+    "tips": "Place in `<head>`; useful for SEO, charset, viewport, and social tags."
+  },
+  {
+    "element": "link",
+    "category": "Expert",
+    "example": "<link rel=\"stylesheet\" href=\"style.css\">",
+    "purpose": "Links external resources like stylesheets",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link",
+    "tips": "Must be placed in `<head>`; rel attribute defines resource type."
+  }
+]

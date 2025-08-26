@@ -1,0 +1,173 @@
+/* ---------- THEME TOKENS ---------- */
+:root {
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+  
+    --bg-color: #f9fafb;
+    --text-color: #1f2937;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+  
+    --table-bg: #ffffff;
+    --header-bg: #f3f4f6;
+    --border-color: #e5e7eb;
+  
+    --radius: 0.5rem; /* less rounded = more dev-like */
+    --shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: #111827;
+    --text-color: #e5e7eb;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+  
+    --table-bg: #1f2937;
+    --header-bg: #374151;
+    --border-color: #4b5563;
+  }
+  
+  /* ---------- BASE STYLES ---------- */
+  body {
+      font-family: var(--font-body), serif;
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  
+  /* ---------- HEADER ---------- */
+  header {
+    background: var(--header-bg);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  /* ---------- FORM ELEMENTS ---------- */
+  input, select, button {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    background: var(--table-bg);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+  }
+  
+  input:focus, select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+    outline: none;
+  }
+  
+  button {
+    cursor: pointer;
+    border: none;
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 500;
+  }
+  button:hover {
+    background: var(--accent-hover);
+  }
+  button:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+  
+  /* ---------- TABLE ---------- */
+  table {
+    width: 95%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background: var(--table-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  
+  th, td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+  }
+  
+  th {
+    background: var(--header-bg);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+  
+  tr:hover:not(.expandable) {
+    background: rgba(37, 99, 235, 0.07);
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  
+  /* ---------- CODE & EXPANDABLE ---------- */
+  code {
+    background: rgba(0,0,0,0.06);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+      font-family: var(--font-mono), serif;
+    font-size: 0.9rem;
+  }
+  
+  .expandable td {
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.04);
+    border-left: 3px solid var(--accent-color);
+    line-height: 1.4;
+  }
+  
+  /* ---------- SEARCH HIGHLIGHT ---------- */
+  .highlight {
+    background: #fde047;
+    padding: 0 2px;
+    border-radius: 2px;
+  }
+  
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    th { display: none; }
+    td {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem;
+    }
+    td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      margin-right: 1rem;
+      text-transform: capitalize;
+    }
+    tr:hover { background: transparent; }
+  }
+  
+  

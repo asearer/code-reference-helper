@@ -1,0 +1,182 @@
+[
+  {
+    "property": ":hover",
+    "category": "Intermediate",
+    "example": "a:hover { color: red; }",
+    "purpose": "Styles an element when the mouse hovers over it",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:hover",
+    "tips": "Works on all interactive elements; combine with transitions for smooth effects."
+  },
+  {
+    "property": ":focus",
+    "category": "Intermediate",
+    "example": "input:focus { border-color: blue; }",
+    "purpose": "Styles an element when it gains focus",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:focus",
+    "tips": "Useful for accessibility; always ensure focus styles are visible."
+  },
+  {
+    "property": ":active",
+    "category": "Intermediate",
+    "example": "button:active { transform: scale(0.95); }",
+    "purpose": "Styles an element when it is being activated",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:active",
+    "tips": "Often used for buttons and interactive elements for click feedback."
+  },
+  {
+    "property": ":nth-child()",
+    "category": "Advanced",
+    "example": "li:nth-child(odd) { background: #f0f0f0; }",
+    "purpose": "Selects elements based on their position within a parent",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child",
+    "tips": "Supports formulas like 2n+1 for complex patterns."
+  },
+  {
+    "property": ":first-child",
+    "category": "Intermediate",
+    "example": "p:first-child { font-weight: bold; }",
+    "purpose": "Selects the first child of a parent",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child",
+    "tips": "Useful for targeting the first element without extra classes."
+  },
+  {
+    "property": ":last-child",
+    "category": "Intermediate",
+    "example": "p:last-child { margin-bottom: 0; }",
+    "purpose": "Selects the last child of a parent",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child",
+    "tips": "Great for removing extra spacing or styling end items."
+  },
+  {
+    "property": "::before",
+    "category": "Advanced",
+    "example": "h1::before { content: '🔥'; }",
+    "purpose": "Inserts content before an element’s content",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before",
+    "tips": "Requires `content` property; useful for icons, decorations."
+  },
+  {
+    "property": "::after",
+    "category": "Advanced",
+    "example": "h1::after { content: '✨'; }",
+    "purpose": "Inserts content after an element’s content",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/::after",
+    "tips": "Often used for clearfix hacks or decorative purposes."
+  },
+  {
+    "property": "attribute selectors",
+    "category": "Advanced",
+    "example": "input[type='text'] { border-color: green; }",
+    "purpose": "Selects elements based on attributes or values",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors",
+    "tips": "Supports =, ~=, ^=, $=, and *= for flexible matching."
+  },
+  {
+    "property": "combinators",
+    "category": "Advanced",
+    "example": "div > p { margin: 0; }",
+    "purpose": "Selects elements based on relationships (>, +, ~, space)",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors",
+    "tips": "Direct child (`>`) vs descendant (` `) selectors are common patterns."
+  },
+  {
+    "property": ":not()",
+    "category": "Advanced",
+    "example": "p:not(.special) { color: gray; }",
+    "purpose": "Excludes elements that match a selector",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/:not",
+    "tips": "Can be combined with multiple pseudo-classes for complex targeting."
+  },
+  {
+    "property": "flex-wrap",
+    "category": "Intermediate",
+    "example": "flex-wrap: wrap;",
+    "purpose": "Allows flex items to wrap onto multiple lines",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap",
+    "tips": "Use with `flex` containers to create responsive layouts."
+  },
+  {
+    "property": "align-items",
+    "category": "Intermediate",
+    "example": "align-items: center;",
+    "purpose": "Aligns flex items along the cross axis",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/align-items",
+    "tips": "Works for flex and grid containers."
+  },
+  {
+    "property": "justify-content",
+    "category": "Intermediate",
+    "example": "justify-content: space-between;",
+    "purpose": "Aligns flex/grid items along the main axis",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content",
+    "tips": "Useful for spacing items evenly or pushing them to ends."
+  },
+  {
+    "property": "place-items",
+    "category": "Advanced",
+    "example": "place-items: center;",
+    "purpose": "Shorthand for align-items and justify-items in grid",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/place-items",
+    "tips": "Simplifies alignment in CSS grid layouts."
+  },
+  {
+    "property": "grid-gap / gap",
+    "category": "Intermediate",
+    "example": "gap: 10px 20px;",
+    "purpose": "Defines spacing between grid/flex items",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/gap",
+    "tips": "Newer versions support flex containers as well."
+  },
+  {
+    "property": "clip-path (advanced shapes)",
+    "category": "Expert",
+    "example": "clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);",
+    "purpose": "Creates complex clipping shapes for elements",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path",
+    "tips": "Combine with transitions for dynamic masking effects."
+  },
+  {
+    "property": "backdrop-filter",
+    "category": "Expert",
+    "example": "backdrop-filter: blur(5px);",
+    "purpose": "Applies filter effects to the area behind an element",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter",
+    "tips": "Requires semi-transparent backgrounds to see the effect."
+  },
+  {
+    "property": "sticky positioning",
+    "category": "Advanced",
+    "example": "position: sticky; top: 0;",
+    "purpose": "Element sticks to a position when scrolling",
+    "complexity": "4/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/position",
+    "tips": "Works only within a scrollable container."
+  },
+  {
+    "property": "pseudo-elements with content counters",
+    "category": "Expert",
+    "example": "li::before { content: counter(item) '. '; counter-increment: item; }",
+    "purpose": "Automatically numbers or decorates elements",
+    "complexity": "5/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/CSS/::before",
+    "tips": "Useful for lists, steps, or automatically generated content."
+  }
+]

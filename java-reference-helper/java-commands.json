@@ -1,0 +1,155 @@
+[
+  {
+    "element": "java.util.ArrayList",
+    "category": "Intermediate",
+    "example": "ArrayList<String> list = new ArrayList<>(); list.add(\"item\");",
+    "purpose": "Resizable array implementation of List",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html",
+    "tips": "Use for dynamic arrays; consider LinkedList for frequent insertions/removals."
+  },
+  {
+    "element": "java.util.HashMap",
+    "category": "Intermediate",
+    "example": "HashMap<String, Integer> map = new HashMap<>(); map.put(\"a\", 1);",
+    "purpose": "Key-value storage",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html",
+    "tips": "Not thread-safe; use ConcurrentHashMap for concurrent access."
+  },
+  {
+    "element": "java.util.HashSet",
+    "category": "Intermediate",
+    "example": "HashSet<String> set = new HashSet<>(); set.add(\"value\");",
+    "purpose": "Collection of unique elements",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html",
+    "tips": "Use to remove duplicates or check membership quickly."
+  },
+  {
+    "element": "java.util.Collections",
+    "category": "Intermediate",
+    "example": "Collections.sort(list); Collections.reverse(list);",
+    "purpose": "Utility methods for collections",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html",
+    "tips": "Includes sorting, searching, min/max, shuffle, and thread-safe wrappers."
+  },
+  {
+    "element": "java.io.File",
+    "category": "Intermediate",
+    "example": "File file = new File(\"test.txt\"); file.exists();",
+    "purpose": "Represents a file or directory",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/io/File.html",
+    "tips": "Use `exists()`, `mkdir()`, and `delete()` to manage files/directories."
+  },
+  {
+    "element": "java.io.FileReader / FileWriter",
+    "category": "Intermediate",
+    "example": "FileReader fr = new FileReader(\"test.txt\"); FileWriter fw = new FileWriter(\"out.txt\");",
+    "purpose": "Read from / write to text files",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/io/FileReader.html",
+    "tips": "Wrap with BufferedReader / BufferedWriter for efficiency."
+  },
+  {
+    "element": "java.io.BufferedReader / BufferedWriter",
+    "category": "Intermediate",
+    "example": "BufferedReader br = new BufferedReader(new FileReader(\"file.txt\"));",
+    "purpose": "Buffered I/O for efficiency",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html",
+    "tips": "Always close streams in a `finally` block or use try-with-resources."
+  },
+  {
+    "element": "try-with-resources",
+    "category": "Intermediate",
+    "example": "try (BufferedReader br = new BufferedReader(new FileReader(\"file.txt\"))) { }",
+    "purpose": "Automatically closes resources",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html",
+    "tips": "Prefer over manual close to avoid resource leaks."
+  },
+  {
+    "element": "java.time.LocalDate / LocalTime / LocalDateTime",
+    "category": "Intermediate",
+    "example": "LocalDate date = LocalDate.now(); LocalDateTime dt = LocalDateTime.of(2025, 8, 26, 12, 0);",
+    "purpose": "Date and time handling",
+    "complexity": "3/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html",
+    "tips": "Immutable; use `plusDays()`, `minusHours()` for calculations."
+  },
+  {
+    "element": "java.util.concurrent.ExecutorService",
+    "category": "Advanced",
+    "example": "ExecutorService executor = Executors.newFixedThreadPool(5); executor.submit(task);",
+    "purpose": "Thread pool management",
+    "complexity": "5/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html",
+    "tips": "Always call `shutdown()` to terminate threads gracefully."
+  },
+  {
+    "element": "java.util.concurrent.Future",
+    "category": "Advanced",
+    "example": "Future<Integer> result = executor.submit(callable); result.get();",
+    "purpose": "Represents result of asynchronous computation",
+    "complexity": "5/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Future.html",
+    "tips": "Use `get(timeout, TimeUnit)` to avoid indefinite blocking."
+  },
+  {
+    "element": "java.net.URL / HttpURLConnection",
+    "category": "Intermediate",
+    "example": "URL url = new URL(\"https://example.com\"); HttpURLConnection conn = (HttpURLConnection) url.openConnection();",
+    "purpose": "HTTP networking",
+    "complexity": "4/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/net/package-summary.html",
+    "tips": "Remember to set request method and read response; close connections properly."
+  },
+  {
+    "element": "java.util.Optional",
+    "category": "Advanced",
+    "example": "Optional<String> name = Optional.ofNullable(getName()); name.ifPresent(System.out::println);",
+    "purpose": "Avoid null pointer exceptions and represent optional values",
+    "complexity": "4/5",
+    "docs": "https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html",
+    "tips": "Use `orElse`, `orElseGet`, or `orElseThrow` for defaults or errors."
+  },
+  {
+    "element": "Singleton pattern",
+    "category": "Expert",
+    "example": "public class Singleton { private static Singleton instance = new Singleton(); private Singleton(){} public static Singleton getInstance(){ return instance; } }",
+    "purpose": "Ensure only one instance of a class",
+    "complexity": "5/5",
+    "docs": "https://refactoring.guru/design-patterns/singleton/java/example",
+    "tips": "Thread safety is crucial for multi-threaded apps; consider using `enum` for simpler implementation."
+  },
+  {
+    "element": "Factory pattern",
+    "category": "Expert",
+    "example": "public class ShapeFactory { public static Shape getShape(String type) { ... } }",
+    "purpose": "Encapsulate object creation",
+    "complexity": "5/5",
+    "docs": "https://refactoring.guru/design-patterns/factory-method/java/example",
+    "tips": "Useful to abstract complex construction logic and return interface types."
+  },
+  {
+    "element": "Observer pattern",
+    "category": "Expert",
+    "example": "class Subject { List<Observer> observers; ... }",
+    "purpose": "Decouple object state changes from observers",
+    "complexity": "5/5",
+    "docs": "https://refactoring.guru/design-patterns/observer/java/example",
+    "tips": "Used in GUI frameworks, event-driven programming."
+  },
+  {
+    "element": "Builder pattern",
+    "category": "Expert",
+    "example": "Person p = new Person.Builder().setName(\"Alice\").setAge(30).build();",
+    "purpose": "Simplifies construction of complex objects",
+    "complexity": "5/5",
+    "docs": "https://refactoring.guru/design-patterns/builder/java/example",
+    "tips": "Implements immutability; useful for objects with many optional parameters."
+  }
+]
