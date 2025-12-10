@@ -16,22 +16,45 @@ A responsive, accessible tool for browsing and searching commands, elements, and
 
 ---
 
+
+---
+
+## Development
+
+To maintain the quality of the data and code, please follow these steps:
+
+### Validation
+Run the data validation script to ensure all JSON files have the required fields:
+```bash
+node tools/validate_data.js
+```
+
+### Testing
+Run the unit tests for the filtering logic:
+```bash
+node --test tests/logic.test.js
+```
+
+### Code Style
+-   Use `Prettier` for formatting.
+-   Use `ESLint` for linting.
+-   Follow JSDoc standards for functions.
+
 ## Project Structure
 
 ```
-code-helper-reference/
+code-reference-helper/
 │
-├─ css-reference-helper/css-commands.json
-├─ go-reference-helper/go-commands.json
-├─ html-reference-helper/html-commands.json
-├─ java-reference-helper/java-commands.json
-├─ js-reference-helper/javascript-commands.json
-├─ php-reference-helper/php-commands.json
-├─ python-reference-helper/python-commands.json
-├─ sql-reference-helper/sql-commands.json
+├─ [language]-reference-helper/
+│   └─ [language]-commands.json  # Data files
 │
-├─ index.html
-├─ script.js
-└─ style.css
-
+├─ tools/
+│   └─ validate_data.js          # Data integrity script
+├─ tests/
+│   └─ logic.test.js             # Unit tests
+│
+├─ logic.js       # Core business logic (filtering, etc.)
+├─ script.js      # DOM manipulation and event handling
+├─ index.html     # Main entry point
+└─ style.css      # Styles
 ```
