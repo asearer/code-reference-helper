@@ -1,155 +1,71 @@
 [
   {
-    "element": "echo / print",
+    "element": "echo",
     "category": "Beginner",
-    "example": "echo \"Hello, PHP!\";\nprint \"World\";",
-    "purpose": "Output text to the browser or console",
+    "example": "echo \"Hello\";",
+    "purpose": "Output one or more strings",
     "complexity": "1/5",
     "docs": "https://www.php.net/manual/en/function.echo.php",
-    "tips": "Use echo for multiple arguments; print returns 1, useful in expressions."
+    "tips": "Slightly faster than print."
   },
   {
-    "element": "variables",
+    "element": "Type Declarations",
+    "version_added": "PHP 7.0",
+    "category": "Intermediate",
+    "example": "function sum(int $a, int $b): int { return $a + $b; }",
+    "purpose": "Enforce types for function arguments and return values",
+    "complexity": "2/5",
+    "docs": "https://www.php.net/manual/en/language.types.declarations.php",
+    "tips": "Use strict_types=1 to enforce strict typing."
+  },
+  {
+    "element": "Null Coalescing (??)",
+    "version_added": "PHP 7.0",
     "category": "Beginner",
-    "example": "$name = \"Alice\";\n$age = 30;",
-    "purpose": "Store data in memory",
+    "example": "$name = $_GET['name'] ?? 'Guest';",
+    "purpose": "Return first operand if it exists and is not null",
     "complexity": "1/5",
-    "docs": "https://www.php.net/manual/en/language.variables.php",
-    "tips": "Variable names start with `$` and are case-sensitive."
+    "docs": "https://www.php.net/manual/en/migration70.new-features.php",
+    "tips": "Replaces `isset() ? :`"
   },
   {
-    "element": "if / elseif / else",
+    "element": "Arrow Functions",
+    "version_added": "PHP 7.4",
+    "category": "Intermediate",
+    "example": "$nums = array_map(fn($n) => $n * 2, $nums);",
+    "purpose": "Concise anonymous functions",
+    "complexity": "2/5",
+    "docs": "https://www.php.net/manual/en/functions.arrow.php",
+    "tips": "Automatically captures variables from parent scope by value."
+  },
+  {
+    "element": "Match Expression",
+    "version_added": "PHP 8.0",
+    "category": "Intermediate",
+    "example": "$status = match($code) { 200 => 'OK', default => 'Error' };",
+    "purpose": "Structural pattern matching",
+    "complexity": "3/5",
+    "docs": "https://www.php.net/manual/en/control-structures.match.php",
+    "tips": "Strict comparison (===), returns a value."
+  },
+  {
+    "element": "Named Arguments",
+    "version_added": "PHP 8.0",
     "category": "Beginner",
-    "example": "if ($x > 0) {\n  echo \"Positive\";\n} elseif ($x == 0) {\n  echo \"Zero\";\n} else {\n  echo \"Negative\";\n}",
-    "purpose": "Conditional execution",
+    "example": "htmlspecialchars($string, double_encode: false);",
+    "purpose": "Pass arguments by name",
     "complexity": "1/5",
-    "docs": "https://www.php.net/manual/en/control-structures.if.php",
-    "tips": "Curly braces are recommended for readability, even for single statements."
+    "docs": "https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments",
+    "tips": "Allows skipping optional parameters."
   },
   {
-    "element": "for / foreach / while / do-while",
-    "category": "Beginner",
-    "example": "for ($i=0;$i<5;$i++) { echo $i; }\nforeach ($arr as $value) { echo $value; }",
-    "purpose": "Loop over sequences or conditions",
-    "complexity": "1/5",
-    "docs": "https://www.php.net/manual/en/control-structures.for.php",
-    "tips": "Use foreach for arrays; while/do-while for conditional loops."
-  },
-  {
-    "element": "functions (function)",
+    "element": "Enums",
+    "version_added": "PHP 8.1",
     "category": "Intermediate",
-    "example": "function add($a, $b) {\n  return $a + $b;\n}",
-    "purpose": "Encapsulate reusable code",
+    "example": "enum Status { case Draft; case Published; }",
+    "purpose": "Enumerations",
     "complexity": "2/5",
-    "docs": "https://www.php.net/manual/en/functions.user-defined.php",
-    "tips": "Use type declarations for parameters and return values in PHP 7+: `function add(int $a, int $b): int`"
-  },
-  {
-    "element": "arrays",
-    "category": "Intermediate",
-    "example": "$arr = [1, 2, 3];\n$arr[] = 4;",
-    "purpose": "Ordered collections of values",
-    "complexity": "2/5",
-    "docs": "https://www.php.net/manual/en/language.types.array.php",
-    "tips": "Use associative arrays for key-value pairs."
-  },
-  {
-    "element": "strings / string functions",
-    "category": "Intermediate",
-    "example": "$str = \"Hello\";\necho strlen($str);\necho strtoupper($str);",
-    "purpose": "Manipulate text",
-    "complexity": "2/5",
-    "docs": "https://www.php.net/manual/en/ref.strings.php",
-    "tips": "PHP has over 200 string functions; check official docs for complex operations."
-  },
-  {
-    "element": "superglobals",
-    "category": "Intermediate",
-    "example": "echo $_GET['param'];\necho $_POST['name'];",
-    "purpose": "Access request and server data",
-    "complexity": "3/5",
-    "docs": "https://www.php.net/manual/en/language.variables.superglobals.php",
-    "tips": "Always sanitize input to prevent security vulnerabilities."
-  },
-  {
-    "element": "include / require / include_once / require_once",
-    "category": "Intermediate",
-    "example": "include 'header.php';\nrequire_once 'config.php';",
-    "purpose": "Include external files",
-    "complexity": "2/5",
-    "docs": "https://www.php.net/manual/en/function.include.php",
-    "tips": "Use `_once` variants to prevent multiple inclusions."
-  },
-  {
-    "element": "classes / objects",
-    "category": "Advanced",
-    "example": "class Person {\n  public $name;\n  function __construct($name) { $this->name = $name; }\n  function greet() { echo \"Hello $this->name\"; }\n}\n$p = new Person('Alice'); $p->greet();",
-    "purpose": "Object-oriented programming",
-    "complexity": "4/5",
-    "docs": "https://www.php.net/manual/en/language.oop5.php",
-    "tips": "Use visibility keywords: public, protected, private; use type hints for clarity."
-  },
-  {
-    "element": "interfaces / abstract classes",
-    "category": "Advanced",
-    "example": "interface Logger { public function log($msg); }\nabstract class BaseLogger implements Logger { abstract public function log($msg); }",
-    "purpose": "Define contracts for classes",
-    "complexity": "4/5",
-    "docs": "https://www.php.net/manual/en/language.oop5.interfaces.php",
-    "tips": "Interfaces allow polymorphism; abstract classes provide partial implementation."
-  },
-  {
-    "element": "exceptions (try / catch / finally / throw)",
-    "category": "Advanced",
-    "example": "try {\n  throw new Exception(\"Error\");\n} catch (Exception $e) {\n  echo $e->getMessage();\n} finally {\n  echo \"Done\";\n}",
-    "purpose": "Error handling",
-    "complexity": "4/5",
-    "docs": "https://www.php.net/manual/en/language.exceptions.php",
-    "tips": "Always catch specific exceptions and clean up in `finally` if needed."
-  },
-  {
-    "element": "PDO / mysqli",
-    "category": "Advanced",
-    "example": "$pdo = new PDO('mysql:host=localhost;dbname=test','user','pass');\n$stmt = $pdo->query('SELECT * FROM users');",
-    "purpose": "Database access",
-    "complexity": "4/5",
-    "docs": "https://www.php.net/manual/en/book.pdo.php",
-    "tips": "Use prepared statements to prevent SQL injection."
-  },
-  {
-    "element": "sessions / cookies",
-    "category": "Intermediate",
-    "example": "session_start(); $_SESSION['user'] = 'Alice';\nsetcookie('name', 'Alice', time()+3600);",
-    "purpose": "Persist user data",
-    "complexity": "3/5",
-    "docs": "https://www.php.net/manual/en/book.session.php",
-    "tips": "Use HTTPS and secure flags for cookies."
-  },
-  {
-    "element": "filter_var / validation",
-    "category": "Intermediate",
-    "example": "$email = 'test@example.com';\nif (filter_var($email, FILTER_VALIDATE_EMAIL)) { echo 'Valid'; }",
-    "purpose": "Validate and sanitize input",
-    "complexity": "3/5",
-    "docs": "https://www.php.net/manual/en/function.filter-var.php",
-    "tips": "Always validate user input to improve security."
-  },
-  {
-    "element": "date / time functions",
-    "category": "Intermediate",
-    "example": "echo date('Y-m-d H:i:s');\n$ts = strtotime('2025-08-26');",
-    "purpose": "Manipulate date and time",
-    "complexity": "3/5",
-    "docs": "https://www.php.net/manual/en/book.datetime.php",
-    "tips": "Use DateTime objects for more complex operations and timezones."
-  },
-  {
-    "element": "array functions",
-    "category": "Intermediate",
-    "example": "array_push($arr, 4);\n$sum = array_sum([1,2,3]);\n$filtered = array_filter($arr, fn($v) => $v>2);",
-    "purpose": "Manipulate arrays easily",
-    "complexity": "3/5",
-    "docs": "https://www.php.net/manual/en/ref.array.php",
-    "tips": "PHP arrays are versatile; learn map/filter/reduce equivalents."
+    "docs": "https://www.php.net/manual/en/language.enumerations.php",
+    "tips": "Can have methods and implement interfaces."
   }
 ]

@@ -171,3 +171,38 @@
   }
   
   
+
+/* Badge Styles */
+.badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.badge.added {
+    background-color: #e6fcf5;
+    color: #0ca678;
+    border: 1px solid #63e6be;
+}
+
+[data-theme='dark'] .badge.added {
+    background-color: #084c36;
+    color: #63e6be;
+    border-color: #0ca678;
+}
+
+.badge.deprecated {
+    background-color: #fff5f5;
+    color: #f03e3e;
+    border: 1px solid #ffa8a8;
+}
+
+[data-theme='dark'] .badge.deprecated {
+    background-color: #5c1818;
+    color: #ff8787;
+    border-color: #f03e3e;
+}

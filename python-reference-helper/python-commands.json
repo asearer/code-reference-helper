@@ -9,6 +9,46 @@
     "tips": "Use f-strings for formatted output: `print(f\"Hello {name}\")`"
   },
   {
+    "element": "f-strings",
+    "version_added": "3.6",
+    "category": "Beginner",
+    "example": "name = \"World\"; print(f\"Hello {name}\")",
+    "purpose": "Formatted string literals",
+    "complexity": "1/5",
+    "docs": "https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals",
+    "tips": "Faster and cleaner than `.format()`."
+  },
+  {
+    "element": "walrus operator (:=)",
+    "version_added": "3.8",
+    "category": "Intermediate",
+    "example": "if (n := len(s)) > 10: print(n)",
+    "purpose": "Assign values to variables as part of a larger expression",
+    "complexity": "3/5",
+    "docs": "https://docs.python.org/3/whatsnew/3.8.html#assignment-expressions",
+    "tips": "Useful in while loops and list comprehensions."
+  },
+  {
+    "element": "match case",
+    "version_added": "3.10",
+    "category": "Intermediate",
+    "example": "match status:\n  case 404: return \"Not Found\"\n  case 200: return \"OK\"",
+    "purpose": "Structural pattern matching",
+    "complexity": "3/5",
+    "docs": "https://docs.python.org/3/tutorial/controlflow.html#match-statements",
+    "tips": "More powerful than switch-case; supports destructuring."
+  },
+  {
+    "element": "type hinting",
+    "version_added": "3.5",
+    "category": "Intermediate",
+    "example": "def greeting(name: str) -> str:\n  return 'Hello ' + name",
+    "purpose": "Indicate expected types for variables/functions",
+    "complexity": "2/5",
+    "docs": "https://docs.python.org/3/library/typing.html",
+    "tips": "Python runtime does not enforce these; use mypy for checking."
+  },
+  {
     "element": "variables",
     "category": "Beginner",
     "example": "x = 5; name = \"Alice\"",
@@ -18,201 +58,13 @@
     "tips": "Python is dynamically typed; use type hints for clarity."
   },
   {
-    "element": "if / elif / else",
-    "category": "Beginner",
-    "example": "if x > 0:\n  print(\"Positive\")\nelif x == 0:\n  print(\"Zero\")\nelse:\n  print(\"Negative\")",
-    "purpose": "Conditional execution",
-    "complexity": "1/5",
-    "docs": "https://docs.python.org/3/tutorial/controlflow.html#if-statements",
-    "tips": "Indentation is required in Python."
-  },
-  {
-    "element": "for loop",
-    "category": "Beginner",
-    "example": "for i in range(5):\n  print(i)",
-    "purpose": "Iterate over a sequence or range",
-    "complexity": "1/5",
-    "docs": "https://docs.python.org/3/tutorial/controlflow.html#for-statements",
-    "tips": "Use `enumerate()` for index tracking."
-  },
-  {
-    "element": "while loop",
-    "category": "Intermediate",
-    "example": "while x > 0:\n  x -= 1",
-    "purpose": "Repeat until condition is false",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/tutorial/controlflow.html#while-statements",
-    "tips": "Avoid infinite loops; include a terminating condition."
-  },
-  {
-    "element": "functions (def)",
-    "category": "Intermediate",
-    "example": "def add(a, b):\n  return a + b",
-    "purpose": "Encapsulate reusable code",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
-    "tips": "Use type hints for readability: `def add(a: int, b: int) -> int:`"
-  },
-  {
-    "element": "lambda expressions",
+    "element": "async / await",
+    "version_added": "3.5",
     "category": "Advanced",
-    "example": "square = lambda x: x**2; print(square(5))",
-    "purpose": "Anonymous, single-line functions",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions",
-    "tips": "Use for short, simple functions; avoid complex logic in lambdas."
-  },
-  {
-    "element": "lists",
-    "category": "Beginner",
-    "example": "lst = [1, 2, 3]; lst.append(4)",
-    "purpose": "Ordered, mutable collection",
-    "complexity": "1/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists",
-    "tips": "Use list comprehensions for concise transformations."
-  },
-  {
-    "element": "tuples",
-    "category": "Intermediate",
-    "example": "t = (1, 2, 3)",
-    "purpose": "Ordered, immutable collection",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences",
-    "tips": "Use for fixed collections and dictionary keys."
-  },
-  {
-    "element": "sets",
-    "category": "Intermediate",
-    "example": "s = {1, 2, 3}; s.add(4)",
-    "purpose": "Unordered collection of unique elements",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#sets",
-    "tips": "Supports union, intersection, difference operations."
-  },
-  {
-    "element": "dicts",
-    "category": "Intermediate",
-    "example": "d = {'a': 1, 'b': 2}; print(d['a'])",
-    "purpose": "Key-value mapping",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#dictionaries",
-    "tips": "Use `get()` to avoid KeyError: `d.get('c', 0)`"
-  },
-  {
-    "element": "list comprehensions",
-    "category": "Advanced",
-    "example": "[x**2 for x in range(5)]",
-    "purpose": "Compact way to create lists",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions",
-    "tips": "Combine with conditionals: `[x for x in range(10) if x%2==0]`"
-  },
-  {
-    "element": "try / except / finally",
-    "category": "Intermediate",
-    "example": "try:\n  x = 1/0\nexcept ZeroDivisionError:\n  print(\"Error\")\nfinally:\n  print(\"Done\")",
-    "purpose": "Exception handling",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/tutorial/errors.html#handling-exceptions",
-    "tips": "Always catch specific exceptions; `finally` for cleanup."
-  },
-  {
-    "element": "with (context manager)",
-    "category": "Intermediate",
-    "example": "with open('file.txt', 'r') as f:\n  data = f.read()",
-    "purpose": "Automatic resource management",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/reference/datamodel.html#context-managers",
-    "tips": "Used with files, locks, and other resources that require closing."
-  },
-  {
-    "element": "import / from ... import",
-    "category": "Beginner",
-    "example": "import math\nfrom math import sqrt",
-    "purpose": "Load modules and functions",
-    "complexity": "1/5",
-    "docs": "https://docs.python.org/3/reference/import.html",
-    "tips": "Use `as` for aliasing: `import numpy as np`."
-  },
-  {
-    "element": "os module",
-    "category": "Intermediate",
-    "example": "import os\nprint(os.getcwd())",
-    "purpose": "Interacting with the operating system",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/library/os.html",
-    "tips": "Use `os.path` for safe path manipulations."
-  },
-  {
-    "element": "sys module",
-    "category": "Intermediate",
-    "example": "import sys\nprint(sys.argv)",
-    "purpose": "System-specific parameters and functions",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/library/sys.html",
-    "tips": "Access command-line arguments and exit codes safely."
-  },
-  {
-    "element": "random module",
-    "category": "Intermediate",
-    "example": "import random\nprint(random.randint(1,10))",
-    "purpose": "Generate random numbers",
-    "complexity": "2/5",
-    "docs": "https://docs.python.org/3/library/random.html",
-    "tips": "Use `random.seed()` for reproducible results."
-  },
-  {
-    "element": "datetime module",
-    "category": "Intermediate",
-    "example": "from datetime import datetime\ndt = datetime.now()",
-    "purpose": "Date and time manipulation",
-    "complexity": "3/5",
-    "docs": "https://docs.python.org/3/library/datetime.html",
-    "tips": "Use `timedelta` for adding/subtracting intervals."
-  },
-  {
-    "element": "threading module",
-    "category": "Advanced",
-    "example": "import threading\nthread = threading.Thread(target=func); thread.start()",
-    "purpose": "Concurrency with threads",
+    "example": "async def main():\n  await asyncio.sleep(1)",
+    "purpose": "Asynchronous programming syntax",
     "complexity": "4/5",
-    "docs": "https://docs.python.org/3/library/threading.html",
-    "tips": "Avoid shared state without locks; use `thread.join()` to wait."
-  },
-  {
-    "element": "multiprocessing module",
-    "category": "Advanced",
-    "example": "from multiprocessing import Process\np = Process(target=func); p.start()",
-    "purpose": "Concurrency with processes",
-    "complexity": "4/5",
-    "docs": "https://docs.python.org/3/library/multiprocessing.html",
-    "tips": "Good for CPU-bound tasks; processes avoid GIL limitations."
-  },
-  {
-    "element": "decorators",
-    "category": "Advanced",
-    "example": "def decorator(f):\n  def wrapper():\n    print(\"Before\")\n    f()\n    print(\"After\")\n  return wrapper",
-    "purpose": "Modify function behavior dynamically",
-    "complexity": "4/5",
-    "docs": "https://docs.python.org/3/glossary.html#term-decorator",
-    "tips": "Use `functools.wraps` to preserve metadata."
-  },
-  {
-    "element": "generators / yield",
-    "category": "Advanced",
-    "example": "def gen():\n  for i in range(5):\n    yield i",
-    "purpose": "Produce values lazily",
-    "complexity": "4/5",
-    "docs": "https://docs.python.org/3/tutorial/classes.html#generators",
-    "tips": "Efficient for large sequences; use `next()` or loops to consume."
-  },
-  {
-    "element": "list / dict / set comprehensions",
-    "category": "Advanced",
-    "example": "[x**2 for x in range(5)]\n{x: x**2 for x in range(5)}\n{x for x in range(5)}",
-    "purpose": "Concise syntax for creating collections",
-    "complexity": "4/5",
-    "docs": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions",
-    "tips": "Combine with conditions: `[x for x in range(10) if x%2==0]`"
+    "docs": "https://docs.python.org/3/library/asyncio.html",
+    "tips": "Require `asyncio.run(main())` to execute."
   }
 ]

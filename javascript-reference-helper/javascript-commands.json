@@ -1,0 +1,81 @@
+[
+  {
+    "element": "var",
+    "version_deprecated": "ES6",
+    "category": "Beginner",
+    "example": "var x = 10;",
+    "purpose": "Function-scoped variable declaration",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var",
+    "tips": "Avoid using in modern code; prefer `let` or `const`."
+  },
+  {
+    "element": "let",
+    "version_added": "ES6",
+    "category": "Beginner",
+    "example": "let x = 10; x = 20;",
+    "purpose": "Block-scoped mutable variable",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let",
+    "tips": "Use for variables that will start out unassigned or be reassigned."
+  },
+  {
+    "element": "const",
+    "version_added": "ES6",
+    "category": "Beginner",
+    "example": "const PI = 3.14;",
+    "purpose": "Block-scoped constant variable",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const",
+    "tips": "Always use `const` by default unless reassignment is needed."
+  },
+  {
+    "element": "arrow functions",
+    "version_added": "ES6",
+    "category": "Intermediate",
+    "example": "const sum = (a, b) => a + b;",
+    "purpose": "Concise function syntax",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions",
+    "tips": "Does not bind its own `this`."
+  },
+  {
+    "element": "async / await",
+    "version_added": "ES2017",
+    "category": "Advanced",
+    "example": "async function fetchData() {\n  const res = await fetch(url);\n}",
+    "purpose": "Handle asynchronous operations synchronously",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function",
+    "tips": "Syntactic sugar over Promises."
+  },
+  {
+    "element": "optional chaining (?.)",
+    "version_added": "ES2020",
+    "category": "Intermediate",
+    "example": "const street = user?.address?.street;",
+    "purpose": "Safely access nested properties",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining",
+    "tips": "Returns `undefined` instead of throwing error if null/undefined."
+  },
+  {
+    "element": "nullish coalescing (??)",
+    "version_added": "ES2020",
+    "category": "Intermediate",
+    "example": "const count = input ?? 10;",
+    "purpose": "Return right-hand operand if left is null/undefined",
+    "complexity": "2/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing",
+    "tips": "Different from `||` which checks for falsy values (like 0 or '')."
+  },
+  {
+    "element": "console.log",
+    "category": "Beginner",
+    "example": "console.log('Hello');",
+    "purpose": "Print to console",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/API/console/log",
+    "tips": "Use `console.table()` for arrays/objects."
+  }
+]

@@ -107,7 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
             row.dataset.element = name;
 
             row.innerHTML = `
-        <td data-label="Element">${highlightText(name)}</td>
+        <td data-label="Element">
+            ${highlightText(name)}
+            ${cmd.version_added ? `<span class="badge added" title="Added in ${cmd.version_added}">${cmd.version_added}</span>` : ''}
+            ${cmd.version_deprecated ? `<span class="badge deprecated" title="Deprecated in ${cmd.version_deprecated}">Deprecated</span>` : ''}
+        </td>
         <td data-label="Category">${cmd.category}</td>
         <td data-label="Example"><code>${highlightText(cmd.example)}</code></td>
         <td data-label="Purpose">${highlightText(cmd.purpose)}</td>

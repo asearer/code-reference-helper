@@ -9,165 +9,61 @@
     "tips": "Use `fmt.Printf` for formatted strings."
   },
   {
-    "element": "fmt.Sprintf",
-    "category": "Beginner",
-    "example": "s := fmt.Sprintf(\"Hello %s\", name)",
-    "purpose": "Formats a string and returns it",
-    "complexity": "1/5",
-    "docs": "https://pkg.go.dev/fmt",
-    "tips": "Does not print; useful for building strings."
-  },
-  {
-    "element": "strings.Split",
-    "category": "Beginner",
-    "example": "parts := strings.Split(\"a,b,c\", \",\")",
-    "purpose": "Splits a string into a slice by separator",
-    "complexity": "1/5",
-    "docs": "https://pkg.go.dev/strings",
-    "tips": "Use `strings.TrimSpace` to remove whitespace if needed."
-  },
-  {
-    "element": "strings.Join",
-    "category": "Beginner",
-    "example": "s := strings.Join([]string{\"a\", \"b\"}, \",\")",
-    "purpose": "Joins a slice of strings into one string",
-    "complexity": "1/5",
-    "docs": "https://pkg.go.dev/strings",
-    "tips": "Useful for CSV generation or display."
-  },
-  {
-    "element": "time.Now",
+    "element": "goroutines",
     "category": "Intermediate",
-    "example": "t := time.Now()",
-    "purpose": "Gets the current time",
+    "example": "go func() { fmt.Println(\"Async\") }()",
+    "purpose": "Lightweight thread managed by Go runtime",
+    "complexity": "3/5",
+    "docs": "https://tour.golang.org/concurrency/1",
+    "tips": "Cheap to create; use thousands if needed."
+  },
+  {
+    "element": "Go Modules",
+    "version_added": "Go 1.11",
+    "category": "Beginner",
+    "example": "go mod init github.com/user/project",
+    "purpose": "Dependency management system",
     "complexity": "2/5",
-    "docs": "https://pkg.go.dev/time",
-    "tips": "Combine with `Format` to display custom time strings."
+    "docs": "https://go.dev/blog/using-go-modules",
+    "tips": "Default since 1.13; replaced GOPATH."
   },
   {
-    "element": "time.Sleep",
+    "element": "Generics",
+    "version_added": "Go 1.18",
+    "category": "Advanced",
+    "example": "func Print[T any](s []T) { ... }",
+    "purpose": "Type parameters for functions and types",
+    "complexity": "4/5",
+    "docs": "https://go.dev/doc/tutorial/generics",
+    "tips": "Use constraints like `any` or `comparable`."
+  },
+  {
+    "element": "embed",
+    "version_added": "Go 1.16",
     "category": "Intermediate",
-    "example": "time.Sleep(2 * time.Second)",
-    "purpose": "Pauses execution for a duration",
+    "example": "//go:embed file.txt\nvar f string",
+    "purpose": "Embed static files into binary",
     "complexity": "2/5",
-    "docs": "https://pkg.go.dev/time",
-    "tips": "Avoid using long sleeps in production; consider timers or channels."
+    "docs": "https://pkg.go.dev/embed",
+    "tips": "Great for single-binary deployments of web apps."
   },
   {
-    "element": "io.ReadAll",
-    "category": "Intermediate",
-    "example": "data, err := io.ReadAll(file)",
-    "purpose": "Reads all content from a Reader",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/io",
-    "tips": "Check error; can consume large files into memory."
-  },
-  {
-    "element": "os.Open",
-    "category": "Intermediate",
-    "example": "file, err := os.Open(\"file.txt\")",
-    "purpose": "Opens a file for reading",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/os",
-    "tips": "Always defer `file.Close()` to avoid leaks."
-  },
-  {
-    "element": "os.Create",
-    "category": "Intermediate",
-    "example": "file, err := os.Create(\"file.txt\")",
-    "purpose": "Creates or truncates a file for writing",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/os",
-    "tips": "Check errors; use `defer file.Close()`."
-  },
-  {
-    "element": "json.Marshal",
+    "element": "fuzzing",
+    "version_added": "Go 1.18",
     "category": "Advanced",
-    "example": "data, err := json.Marshal(obj)",
-    "purpose": "Converts Go structs to JSON",
+    "example": "func FuzzReverse(f *testing.F) { ... }",
+    "purpose": "Automated testing with random inputs",
     "complexity": "4/5",
-    "docs": "https://pkg.go.dev/encoding/json",
-    "tips": "Struct fields must be exported (capitalized) to be encoded."
+    "docs": "https://go.dev/doc/tutorial/fuzz",
+    "tips": "Helps find edge cases and bugs."
   },
   {
-    "element": "json.Unmarshal",
-    "category": "Advanced",
-    "example": "err := json.Unmarshal(data, &obj)",
-    "purpose": "Parses JSON into Go structs",
-    "complexity": "4/5",
-    "docs": "https://pkg.go.dev/encoding/json",
-    "tips": "Always check errors; JSON must match struct field types."
-  },
-  {
-    "element": "http.Get",
+    "element": "defer",
     "category": "Intermediate",
-    "example": "resp, err := http.Get(\"https://example.com\")",
-    "purpose": "Sends a GET request to a URL",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/net/http",
-    "tips": "Always close `resp.Body` after reading."
-  },
-  {
-    "element": "http.Post",
-    "category": "Intermediate",
-    "example": "resp, err := http.Post(url, \"application/json\", body)",
-    "purpose": "Sends a POST request with data",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/net/http",
-    "tips": "Use `bytes.NewReader` or `strings.NewReader` for body."
-  },
-  {
-    "element": "context.WithTimeout",
-    "category": "Advanced",
-    "example": "ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)",
-    "purpose": "Creates a context with a timeout",
-    "complexity": "4/5",
-    "docs": "https://pkg.go.dev/context",
-    "tips": "Always call `cancel()` to release resources."
-  },
-  {
-    "element": "sync.Mutex",
-    "category": "Advanced",
-    "example": "var mu sync.Mutex; mu.Lock(); mu.Unlock()",
-    "purpose": "Provides mutual exclusion for shared resources",
-    "complexity": "5/5",
-    "docs": "https://pkg.go.dev/sync",
-    "tips": "Use `defer mu.Unlock()` immediately after Lock for safety."
-  },
-  {
-    "element": "regexp.MustCompile",
-    "category": "Advanced",
-    "example": "re := regexp.MustCompile(`\\d+`)",
-    "purpose": "Compiles a regular expression",
-    "complexity": "4/5",
-    "docs": "https://pkg.go.dev/regexp",
-    "tips": "Use `MustCompile` when the pattern is constant; otherwise use `Compile`."
-  },
-  {
-    "element": "log.Fatal",
-    "category": "Intermediate",
-    "example": "log.Fatal(err)",
-    "purpose": "Logs an error and exits the program",
-    "complexity": "3/5",
-    "docs": "https://pkg.go.dev/log",
-    "tips": "Use for unrecoverable errors."
-  },
-  {
-    "element": "iota",
-    "category": "Intermediate",
-    "example": "const (A = iota; B; C)",
-    "purpose": "Generates successive integer constants",
-    "complexity": "3/5",
-    "docs": "https://golang.org/ref/spec#Iota",
-    "tips": "Useful for enums."
-  },
-  {
-    "element": "defer panic recover idiom",
-    "category": "Expert",
-    "example": "defer func() { if r := recover(); r != nil { fmt.Println(r) } }()",
-    "purpose": "Recovers from panics safely",
-    "complexity": "5/5",
-    "docs": "https://golang.org/doc/effective_go#panics",
-    "tips": "Use for top-level error recovery; avoid overusing."
+    "example": "defer file.Close()",
+    "purpose": "Schedule function call to run after completion",
+    "complexity": "2/5",
+    "docs": "https://tour.golang.org/flowcontrol/12",
+    "tips": "Executed in LIFO order."
   }
 ]

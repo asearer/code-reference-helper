@@ -1,246 +1,68 @@
 [
-    {
-      "command": "SELECT",
-      "category": "Beginner",
-      "example": "SELECT * FROM employees;",
-      "purpose": "Retrieve data from a table",
-      "complexity": "1/5",
-      "docs": "https://www.w3schools.com/sql/sql_select.asp",
-      "tips": "Always specify columns when possible to improve performance instead of using *."
-    },
-    {
-      "command": "WHERE",
-      "category": "Beginner",
-      "example": "SELECT * FROM employees WHERE department = 'Sales';",
-      "purpose": "Filter rows",
-      "complexity": "1/5",
-      "docs": "https://www.w3schools.com/sql/sql_where.asp",
-      "tips": "Use indexes on columns used in WHERE to speed up queries."
-    },
-    {
-      "command": "DISTINCT",
-      "category": "Beginner",
-      "example": "SELECT DISTINCT department FROM employees;",
-      "purpose": "Get unique values",
-      "complexity": "1/5",
-      "docs": "https://www.w3schools.com/sql/sql_distinct.asp",
-      "tips": "DISTINCT can be expensive on large tables; consider GROUP BY if counting."
-    },
-    {
-      "command": "ORDER BY",
-      "category": "Beginner",
-      "example": "SELECT * FROM employees ORDER BY salary DESC;",
-      "purpose": "Sort results",
-      "complexity": "1/5",
-      "docs": "https://www.w3schools.com/sql/sql_orderby.asp",
-      "tips": "Sorting large datasets can be slow; limit rows when possible."
-    },
-    {
-      "command": "LIMIT / OFFSET",
-      "category": "Beginner",
-      "example": "SELECT * FROM employees LIMIT 10 OFFSET 20;",
-      "purpose": "Paginate results",
-      "complexity": "1/5",
-      "docs": "https://www.postgresql.org/docs/current/queries-limit.html",
-      "tips": "Use indexes on ORDER BY columns to improve pagination performance."
-    },
-    {
-      "command": "Aggregate Functions",
-      "category": "Beginner",
-      "example": "SELECT COUNT(*) FROM employees;",
-      "purpose": "Count, SUM, AVG, MIN, MAX",
-      "complexity": "2/5",
-      "docs": "https://www.w3schools.com/sql/sql_count_avg_sum.asp",
-      "tips": "Avoid COUNT(*) on huge tables without filters; consider approximate counts."
-    },
-    {
-      "command": "GROUP BY",
-      "category": "Beginner",
-      "example": "SELECT department, AVG(salary) FROM employees GROUP BY department;",
-      "purpose": "Aggregate per group",
-      "complexity": "2/5",
-      "docs": "https://www.w3schools.com/sql/sql_groupby.asp",
-      "tips": "Any column in SELECT that is not aggregated must appear in GROUP BY."
-    },
-    {
-      "command": "HAVING",
-      "category": "Beginner",
-      "example": "SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary) > 50000;",
-      "purpose": "Filter aggregated results",
-      "complexity": "2/5",
-      "docs": "https://www.w3schools.com/sql/sql_having.asp",
-      "tips": "HAVING is applied after GROUP BY; use WHERE for row-level filtering."
-    },
-    {
-      "command": "INNER JOIN",
-      "category": "Intermediate",
-      "example": "SELECT e.name, d.name FROM employees e JOIN departments d ON e.department_id = d.id;",
-      "purpose": "Combine related tables",
-      "complexity": "3/5",
-      "docs": "https://www.w3schools.com/sql/sql_join_inner.asp",
-      "tips": "Always join on indexed columns for performance; use table aliases for clarity."
-    },
-    {
-      "command": "LEFT/RIGHT JOIN",
-      "category": "Intermediate",
-      "example": "SELECT e.name, d.name FROM employees e LEFT JOIN departments d ON e.department_id = d.id;",
-      "purpose": "Keep all rows from one table",
-      "complexity": "3/5",
-      "docs": "https://www.w3schools.com/sql/sql_join_left.asp",
-      "tips": "LEFT JOIN keeps all left table rows; RIGHT JOIN keeps all right table rows."
-    },
-    {
-      "command": "Subquery (in SELECT)",
-      "category": "Intermediate",
-      "example": "SELECT name, (SELECT AVG(salary) FROM employees) AS avg_salary FROM employees;",
-      "purpose": "Use a query inside another query",
-      "complexity": "3/5",
-      "docs": "https://www.w3schools.com/sql/sql_subquery.asp",
-      "tips": "Avoid correlated subqueries on large datasets; consider JOIN or CTE."
-    },
-    {
-      "command": "Subquery (in WHERE)",
-      "category": "Intermediate",
-      "example": "SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees);",
-      "purpose": "Filter based on another query",
-      "complexity": "3/5",
-      "docs": "https://www.w3schools.com/sql/sql_subquery.asp",
-      "tips": "Correlated subqueries can be slow; test performance."
-    },
-    {
-      "command": "CASE WHEN",
-      "category": "Intermediate",
-      "example": "SELECT name, CASE WHEN salary > 50000 THEN 'High' ELSE 'Low' END AS salary_group FROM employees;",
-      "purpose": "Conditional logic in queries",
-      "complexity": "3/5",
-      "docs": "https://www.w3schools.com/sql/sql_case.asp",
-      "tips": "Use CASE for dynamic categorization instead of multiple queries."
-    },
-    {
-      "command": "Aliases",
-      "category": "Intermediate",
-      "example": "SELECT e.name AS employee_name, d.name AS department_name FROM employees e JOIN departments d ON e.department_id = d.id;",
-      "purpose": "Rename columns/tables for clarity",
-      "complexity": "2/5",
-      "docs": "https://www.w3schools.com/sql/sql_alias.asp",
-      "tips": "Short aliases improve readability in complex joins."
-    },
-    {
-      "command": "CTE (WITH)",
-      "category": "Advanced",
-      "example": "WITH dept_avg AS (SELECT department_id, AVG(salary) AS avg_sal FROM employees GROUP BY department_id) SELECT * FROM dept_avg WHERE avg_sal > 50000;",
-      "purpose": "Modular subquery, improves readability",
-      "complexity": "4/5",
-      "docs": "https://www.postgresql.org/docs/current/queries-with.html",
-      "tips": "CTEs can also be recursive; they improve readability for complex queries."
-    },
-    {
-      "command": "Recursive CTE",
-      "category": "Advanced",
-      "example": "WITH RECURSIVE emp_hierarchy AS (SELECT id, manager_id, name FROM employees WHERE manager_id IS NULL UNION ALL SELECT e.id, e.manager_id, e.name FROM employees e JOIN emp_hierarchy eh ON e.manager_id = eh.id) SELECT * FROM emp_hierarchy;",
-      "purpose": "Handle hierarchical data",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/queries-with.html#QUERIES-WITH-RECURSIVE",
-      "tips": "Useful for org charts, tree structures; watch recursion depth on large datasets."
-    },
-    {
-      "command": "Window Functions",
-      "category": "Advanced",
-      "example": "SELECT name, salary, RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank FROM employees;",
-      "purpose": "Rank, running totals, lag/lead values",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/tutorial-window.html",
-      "tips": "Use window functions to perform calculations across rows without collapsing them."
-    },
-    {
-      "command": "Pivot with CASE",
-      "category": "Advanced",
-      "example": "SELECT department_id, SUM(CASE WHEN role='Manager' THEN 1 ELSE 0 END) AS manager_count FROM employees GROUP BY department_id;",
-      "purpose": "Transform rows into columns",
-      "complexity": "4/5",
-      "docs": "https://www.sqlshack.com/pivoting-and-unpivoting-in-sql-server-sql-server-pivot-unpivot-commands/",
-      "tips": "Use CASE or PIVOT depending on database support; helpful for summary tables."
-    },
-    {
-      "command": "Self JOIN",
-      "category": "Advanced",
-      "example": "SELECT e1.name, e2.name FROM employees e1 JOIN employees e2 ON e1.manager_id = e2.id;",
-      "purpose": "Compare rows within the same table",
-      "complexity": "4/5",
-      "docs": "https://www.sqltutorial.org/sql-self-join/",
-      "tips": "Useful for hierarchical data or comparing related rows in one table."
-    },
-    {
-      "command": "FULL OUTER JOIN",
-      "category": "Advanced",
-      "example": "SELECT * FROM employees e FULL OUTER JOIN departments d ON e.department_id = d.id;",
-      "purpose": "Combine all rows from both tables",
-      "complexity": "4/5",
-      "docs": "https://www.w3schools.com/sql/sql_join_full.asp",
-      "tips": "Returns all unmatched rows from both tables; less common, but useful in reporting."
-    },
-    {
-      "command": "JSON / Array Queries",
-      "category": "Expert",
-      "example": "SELECT data->>'name' AS name FROM orders;",
-      "purpose": "Query JSON fields",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/functions-json.html",
-      "tips": "Use JSON functions to store flexible semi-structured data in relational DBs."
-    },
-    {
-      "command": "Window Functions with Frames",
-      "category": "Expert",
-      "example": "SUM(salary) OVER (PARTITION BY department_id ORDER BY hire_date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
-      "purpose": "Running totals, moving averages",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/tutorial-window.html",
-      "tips": "Frames define the subset of rows a window function operates on; crucial for analytics."
-    },
-    {
-      "command": "Materialized Views",
-      "category": "Expert",
-      "example": "CREATE MATERIALIZED VIEW dept_summary AS SELECT department_id, AVG(salary) AS avg_sal FROM employees GROUP BY department_id;",
-      "purpose": "Precompute heavy queries",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/rules-materializedviews.html",
-      "tips": "Refresh materialized views periodically; good for dashboards."
-    },
-    {
-      "command": "Full-text Search",
-      "category": "Expert",
-      "example": "SELECT * FROM articles WHERE to_tsvector(content) @@ to_tsquery('SQL & advanced');",
-      "purpose": "Search unstructured text",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/textsearch-intro.html",
-      "tips": "Use indexes like GIN for fast full-text search."
-    },
-    {
-      "command": "Query Optimization",
-      "category": "Expert",
-      "example": "Using EXPLAIN / ANALYZE, indexes, partitioning",
-      "purpose": "Performance tuning on large datasets",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/using-explain.html",
-      "tips": "Always check query plans; indexes can dramatically improve performance."
-    },
-    {
-      "command": "Dynamic SQL",
-      "category": "Expert",
-      "example": "EXECUTE format('SELECT * FROM %I', tablename);",
-      "purpose": "Build queries programmatically",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/plpgsql-control-structures.html#PLPGSQL-EXECUTING-DYNAMIC",
-      "tips": "Use with caution; avoid SQL injection by sanitizing inputs."
-    },
-    {
-      "command": "Analytical Functions",
-      "category": "Expert",
-      "example": "CUME_DIST(), PERCENT_RANK(), NTILE()",
-      "purpose": "Advanced statistical calculations",
-      "complexity": "5/5",
-      "docs": "https://www.postgresql.org/docs/current/functions-window.html",
-      "tips": "Useful for percentile ranking, cumulative distributions, and segmentation."
-    }
-  ]
-  
+  {
+    "command": "SELECT",
+    "category": "Beginner",
+    "example": "SELECT * FROM users;",
+    "purpose": "Retrieve data from a database",
+    "complexity": "1/5",
+    "docs": "https://www.w3schools.com/sql/sql_select.asp",
+    "tips": "Specify columns instead of `*` for better performance."
+  },
+  {
+    "command": "JOIN",
+    "category": "Intermediate",
+    "example": "SELECT * FROM orders JOIN users ON orders.user_id = users.id;",
+    "purpose": "Combine rows from two or more tables",
+    "complexity": "3/5",
+    "docs": "https://www.w3schools.com/sql/sql_join.asp",
+    "tips": "INNER JOIN is default; LEFT JOIN includes all from left table."
+  },
+  {
+    "command": "CTEs (WITH)",
+    "version_added": "SQL:1999",
+    "category": "Advanced",
+    "example": "WITH regional_sales AS (...) SELECT * FROM regional_sales;",
+    "purpose": "Define temporary result set",
+    "complexity": "3/5",
+    "docs": "https://www.postgresql.org/docs/current/queries-with.html",
+    "tips": "Makes complex queries more readable; supports recursion."
+  },
+  {
+    "command": "Window Functions",
+    "version_added": "SQL:2003",
+    "category": "Advanced",
+    "example": "SELECT rank() OVER (PARTITION BY dept ORDER BY salary DESC) FROM emps;",
+    "purpose": "Perform calculations across a set of table rows",
+    "complexity": "4/5",
+    "docs": "https://www.postgresql.org/docs/current/tutorial-window.html",
+    "tips": "Does not collapse rows like GROUP BY."
+  },
+  {
+    "command": "JSON support",
+    "version_added": "Modern SQL",
+    "category": "Advanced",
+    "example": "SELECT info->>'name' FROM users;",
+    "purpose": "Store and query JSON data",
+    "complexity": "3/5",
+    "docs": "https://www.postgresql.org/docs/current/functions-json.html",
+    "tips": "Syntax varies by dialect (PostgreSQL shown)."
+  },
+  {
+    "command": "GROUP BY",
+    "category": "Intermediate",
+    "example": "SELECT count(*) FROM users GROUP BY country;",
+    "purpose": "Group rows that have the same values",
+    "complexity": "2/5",
+    "docs": "https://www.w3schools.com/sql/sql_groupby.asp",
+    "tips": "Used with aggregate functions (COUNT, MAX, MIN, SUM, AVG)."
+  },
+  {
+    "command": "INSERT INTO",
+    "category": "Beginner",
+    "example": "INSERT INTO users (name) VALUES ('Alice');",
+    "purpose": "Insert new records",
+    "complexity": "1/5",
+    "docs": "https://www.w3schools.com/sql/sql_insert.asp",
+    "tips": "Always specify column names for safety."
+  }
+]

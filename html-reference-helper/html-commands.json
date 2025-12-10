@@ -1,0 +1,89 @@
+[
+  {
+    "element": "<div>",
+    "category": "Beginner",
+    "example": "<div>Content</div>",
+    "purpose": "Generic container",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
+    "tips": "Use semantic elements like `<section>` or `<article>` when possible."
+  },
+  {
+    "element": "<span>",
+    "category": "Beginner",
+    "example": "<span>Text</span>",
+    "purpose": "Inline container",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span",
+    "tips": "Useful for styling parts of text."
+  },
+  {
+    "element": "<video>",
+    "version_added": "HTML5",
+    "category": "Intermediate",
+    "example": "<video src='movie.mp4' controls></video>",
+    "purpose": "Embed video content",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video",
+    "tips": "Include multiple source formats for browser compatibility."
+  },
+  {
+    "element": "<audio>",
+    "version_added": "HTML5",
+    "category": "Intermediate",
+    "example": "<audio src='sound.mp3' controls></audio>",
+    "purpose": "Embed audio content",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+    "tips": "Supports .mp3, .wav, and .ogg."
+  },
+  {
+    "element": "<main>",
+    "version_added": "HTML5",
+    "category": "Beginner",
+    "example": "<main>Main Content</main>",
+    "purpose": "Dominant content of the body",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main",
+    "tips": "Must be unique per page; do not nest inside header/footer."
+  },
+  {
+    "element": "<dialog>",
+    "version_added": "HTML5",
+    "category": "Advanced",
+    "example": "<dialog open>Hello</dialog>",
+    "purpose": "Dialog box or window",
+    "complexity": "3/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog",
+    "tips": "Use `.showModal()` for a modal behavior."
+  },
+  {
+    "element": "<center>",
+    "version_deprecated": "HTML4",
+    "category": "Beginner",
+    "example": "<center>Text</center>",
+    "purpose": "Center text (Deprecated)",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center",
+    "tips": "Do not use. Use CSS `text-align: center` instead."
+  },
+  {
+    "element": "<font>",
+    "version_deprecated": "HTML4",
+    "category": "Beginner",
+    "example": "<font color='red'>Text</font>",
+    "purpose": "Font styling (Deprecated)",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font",
+    "tips": "Do not use. Use CSS `color` instead."
+  },
+  {
+    "element": "<a>",
+    "category": "Beginner",
+    "example": "<a href='https://example.com'>Link</a>",
+    "purpose": "Hyperlink",
+    "complexity": "1/5",
+    "docs": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+    "tips": "Use `target='_blank'` to open in new tab."
+  }
+]
